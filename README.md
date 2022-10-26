@@ -1,2 +1,2 @@
-# himemycms
-Simple cms for you
+# template
+Simple template homeword :3
