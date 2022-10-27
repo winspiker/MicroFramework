@@ -1,10 +1,10 @@
 <div align="center">
 
-# HidemyCMS
+# MicroFramework
 
 
 
-HidemyCMS is a **simple cms** for u.
+MicroFramework is a **simple framework** for u.
 
 Normal description will be added later :3<br />
 
