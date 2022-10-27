@@ -1,6 +1,6 @@
 <?php
 
-namespace Winspiker\HidemyCMS\Engine\Core\FileManager;
+namespace Winspiker\MicroFramework\Engine\Core\FileManager;
 
 class FileManager
 {

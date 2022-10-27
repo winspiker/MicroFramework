@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Winspiker\HidemyCMS\Cms\Controller\HomeController;
+use Winspiker\MicroFramework\Main\Controller\HomeController;
 
 $this->router->add('home', '/', [HomeController::class, "index"]);
 $this->router->add('news', '/news', [HomeController::class, "news"]);

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Cms\Controller;
+namespace Winspiker\MicroFramework\Main\Controller;
 
-use Winspiker\HidemyCMS\Engine\Controller;
+use Winspiker\MicroFramework\Engine\Controller;
 
 class HomeController extends Controller
 {

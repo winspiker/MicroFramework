@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Core\Router;
+namespace Winspiker\MicroFramework\Engine\Core\Router;
 
-use http\Exception\InvalidArgumentException;
 
 class DispatchedRoute
 {
@@ -13,14 +12,14 @@ class DispatchedRoute
         // Проверить если ли такой класс
         $controller = $this->controller[0];
         if(!class_exists($controller)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf('Class "%s" doesnt exist.', $controller)
             );
         }
 
         $method = (string)($this->controller[1]?? '__invoke');
         if (!method_exists($controller, $method)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf('Method "%s::%s" doesnt exist.', $controller, $method)
             );
         }

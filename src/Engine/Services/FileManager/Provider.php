@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Services\FileManager;
+namespace Winspiker\MicroFramework\Engine\Services\FileManager;
 
-use Winspiker\HidemyCMS\Engine\Services\AbstractProvider;
+use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
 
-use Winspiker\HidemyCMS\Engine\Core\FileManager\FileManager;
+use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 
 class Provider extends AbstractProvider
 {

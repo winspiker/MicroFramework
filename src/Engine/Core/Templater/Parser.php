@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Core\Templater;
+namespace Winspiker\MicroFramework\Engine\Core\Templater;
 
 use mysql_xdevapi\Exception;
-use Winspiker\HidemyCMS\Engine\Core\FileManager\FileManager;
+use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 
 class Parser
 {

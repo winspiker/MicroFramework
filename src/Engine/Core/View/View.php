@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Core\View;
+namespace Winspiker\MicroFramework\Engine\Core\View;
 
-use Winspiker\HidemyCMS\Engine\Core\FileManager\FileManager;
-use Winspiker\HidemyCMS\Engine\DI\DI;
-use Winspiker\HidemyCMS\Engine\Core\Templater\Renderer;
+use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
+use Winspiker\MicroFramework\Engine\DI\DI;
+use Winspiker\MicroFramework\Engine\Core\Templater\Renderer;
 
 class View
 {

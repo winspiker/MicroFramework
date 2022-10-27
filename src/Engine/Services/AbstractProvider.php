@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Services;
+namespace Winspiker\MicroFramework\Engine\Services;
 
-use Winspiker\HidemyCMS\Engine\DI\DI;
+use Winspiker\MicroFramework\Engine\DI\DI;
 
 abstract class AbstractProvider
 {

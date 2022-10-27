@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Services\View;
+namespace Winspiker\MicroFramework\Engine\Services\View;
 
-use Winspiker\HidemyCMS\Engine\Services\AbstractProvider;
-use Winspiker\HidemyCMS\Engine\Core\View\View;
+use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
+use Winspiker\MicroFramework\Engine\Core\View\View;
 
 class Provider extends AbstractProvider
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Winspiker\HidemyCMS\Engine\Core\Templater;
+namespace Winspiker\MicroFramework\Engine\Core\Templater;
 
-use Winspiker\HidemyCMS\Engine\Core\FileManager\FileManager;
+use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 
 class Renderer // Renderer
 {

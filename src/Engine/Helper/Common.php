@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Helper;
+namespace Winspiker\MicroFramework\Engine\Helper;
 
 class Common
 {

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Services\Router;
+namespace Winspiker\MicroFramework\Engine\Services\Router;
 
-use Winspiker\HidemyCMS\Engine\Services\AbstractProvider;
+use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
 
-use Winspiker\HidemyCMS\Engine\Core\Router\Router;
+use Winspiker\MicroFramework\Engine\Core\Router\Router;
 
 class Provider extends AbstractProvider
 {

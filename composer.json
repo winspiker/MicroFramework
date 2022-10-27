@@ -1,18 +1,16 @@
 {
-    "name": "winspiker/hidemycms",
+    "name": "winspiker/microframework",
     "autoload": {
         "psr-4": {
-            "Winspiker\\HidemyCMS\\": "src/"
+            "Winspiker\\MicroFramework\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Alex",
+            "name": "Winspiker",
             "email": "hidemysword69@gmail.com"
         }
     ],
     "require": {
-      "ext-http": "*",
-        "ext-mysql_xdevapi": "*"
     }
 }

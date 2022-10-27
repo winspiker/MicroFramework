@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 return [
-    Winspiker\HidemyCMS\Engine\Services\Router\Provider::class,
-    Winspiker\HidemyCMS\Engine\Services\FileManager\Provider::class,
-    Winspiker\HidemyCMS\Engine\Services\Templater\Provider::class,
-    Winspiker\HidemyCMS\Engine\Services\View\Provider::class,
+    Winspiker\MicroFramework\Engine\Services\Router\Provider::class,
+    Winspiker\MicroFramework\Engine\Services\FileManager\Provider::class,
+    Winspiker\MicroFramework\Engine\Services\Templater\Provider::class,
+    Winspiker\MicroFramework\Engine\Services\View\Provider::class,
 ];

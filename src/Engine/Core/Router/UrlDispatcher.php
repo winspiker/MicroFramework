@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Core\Router;
+namespace Winspiker\MicroFramework\Engine\Core\Router;
 
-use Winspiker\HidemyCMS\Engine\Core\Router\DispatchedRoute;
+use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
 
 class UrlDispatcher
 {

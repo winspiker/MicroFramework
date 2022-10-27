@@ -1,6 +1,6 @@
 <?php
 
-namespace Winspiker\HidemyCMS\Engine\Core\Templater;
+namespace Winspiker\MicroFramework\Engine\Core\Templater;
 
 class Attributes
 {

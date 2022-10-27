@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\Runner;
+namespace Winspiker\MicroFramework\Engine\Runner;
 
 
-use Winspiker\HidemyCMS\Cms\Controller\ErrorController;
-use Winspiker\HidemyCMS\Engine\Core\FileManager\FileManager;
-use Winspiker\HidemyCMS\Engine\Helper\Common;
-use Winspiker\HidemyCMS\Engine\Core\Router\DispatchedRoute;
-use Winspiker\HidemyCMS\Engine\Core\Router\Router;
-use Winspiker\HidemyCMS\Engine\DI\DI;
+use Winspiker\MicroFramework\Main\Controller\ErrorController;
+use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
+use Winspiker\MicroFramework\Engine\Helper\Common;
+use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
+use Winspiker\MicroFramework\Engine\Core\Router\Router;
+use Winspiker\MicroFramework\Engine\DI\DI;
 
 class Runner
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Admin\Controller;
+namespace Winspiker\MicroFramework\Admin\Controller;
 
 
-use Winspiker\HidemyCMS\Engine\Controller;
+use Winspiker\MicroFramework\Engine\Controller;
 
 class ErrorController extends Controller
 {

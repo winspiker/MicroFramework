@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine\DI;
+namespace Winspiker\MicroFramework\Engine\DI;
 
 final class DI
 {

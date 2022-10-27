@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Winspiker\HidemyCMS\Engine\DI\DI;
-use Winspiker\HidemyCMS\Engine\Runner\Runner;
+use Winspiker\MicroFramework\Engine\DI\DI;
+use Winspiker\MicroFramework\Engine\Runner\Runner;
 
-require_once __DIR__ . '/../constants.php';
+require_once __DIR__ . "/../constants.php";
 require_once ROOT_DIR . 'vendor/autoload.php';
 
 try {

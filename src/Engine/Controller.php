@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\HidemyCMS\Engine;
+namespace Winspiker\MicroFramework\Engine;
 
 
-use Winspiker\HidemyCMS\Engine\Core\View\View;
-use Winspiker\HidemyCMS\Engine\DI\DI;
+use Winspiker\MicroFramework\Engine\Core\View\View;
+use Winspiker\MicroFramework\Engine\DI\DI;
 
 
 class Controller
