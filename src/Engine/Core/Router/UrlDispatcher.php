@@ -1,8 +1,9 @@
-<?php
+<?php /** @noinspection PhpInconsistentReturnPointsInspection */
 declare(strict_types=1);
 
 namespace Winspiker\MicroFramework\Engine\Core\Router;
 
+use mysql_xdevapi\Exception;
 use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
 
 class UrlDispatcher
@@ -63,6 +64,7 @@ class UrlDispatcher
     /**
      * @param $method
      * @param $uri
+     * @throws \Exception
      */
     private function doDispatch($method, $uri): ?DispatchedRoute
     {
@@ -72,7 +74,9 @@ class UrlDispatcher
                 return new DispatchedRoute($controller, $parameters);
             }
         }
-        return null;
+        throw new \InvalidArgumentException(
+            sprintf("Page not found %s", $uri)
+        );
     }
 
     /**

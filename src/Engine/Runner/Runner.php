@@ -29,7 +29,15 @@ class Runner
         $this->router = $this->di->get('router');
         $this->fileManager = $this->di->get('filemanager');
     }
+    private function executeController($routerDispatch): void
+    {
 
+        [$controller, $action] = $routerDispatch->getController();
+        $routerParams = $routerDispatch->getParameters();
+        $parameters = \array_key_exists('id', $routerParams) ? array($routerParams['id']) : $routerParams;
+        \call_user_func_array([new $controller($this->di), $action], $parameters);
+
+    }
     public function run(): void
     {
         try {
@@ -38,18 +46,13 @@ class Runner
                 require_once $routesFile;
             }
 
-
             $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
-            if ($routerDispatch === null) {
-                $routerDispatch = new DispatchedRoute([ErrorController::class, 'page404']);
-            }
-            [$controller, $action] = $routerDispatch->getController();
-            $routerParams = $routerDispatch->getParameters();
-            $parameters = \array_key_exists('id', $routerParams) ? array($routerParams['id']) : $routerParams;
-            \call_user_func_array([new $controller($this->di), $action], $parameters);
+
+            $this->executeController($routerDispatch);
         } catch (\Exception $e) {
-            echo $e->getMessage();
-            exit();
+            $routerDispatch = new DispatchedRoute([ErrorController::class, 'page404'], [$e->getMessage()]);
+
+            $this->executeController($routerDispatch);
         }
     }
 }

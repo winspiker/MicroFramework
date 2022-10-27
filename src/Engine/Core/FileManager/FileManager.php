@@ -7,7 +7,7 @@ class FileManager
     public function saveResult(string $tempalateName, string $content): string
     {
         $hash = hash('md5', $tempalateName . hash('md5', $content));
-        $fileName = $tempalateName . '-' . $hash . '.php';
+        $fileName = $hash . '.php';
         $fullFileName = ROOT_DIR . 'cache/' . $fileName;
         if (!is_file($fullFileName)) {
             file_put_contents($fullFileName, $content);
@@ -35,7 +35,7 @@ class FileManager
                 sprintf('"%s" is not directory', $dirPath)
             );
         }
-        $scanned_directory = array_diff(scandir($dirPath), ['..', '.']);
+        $scanned_directory = array_diff(scandir($dirPath), ['..', '.', '.gitkeep']);
         return $this->addPath($scanned_directory, $dirPath);
 
 
@@ -52,7 +52,8 @@ class FileManager
 
     private function removeOldPages(string $fileName): void
     {
-        $files = scandir(ROOT_DIR . 'cache');
+        $files = array_diff(scandir(ROOT_DIR . 'cache'), ['..', '.', '.gitkeep']);
+        
         foreach ($files as $file) { // ебашим по $templateName
             if ($file !== $fileName && !is_dir($file)) {
                 unlink(ROOT_DIR . 'cache/' . $file);

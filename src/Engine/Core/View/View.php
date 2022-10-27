@@ -29,6 +29,7 @@ class View
         extract($data, EXTR_SKIP);
         $content = $this->renderer->render($tamplateName);
         $filePath = $this->fileManager->saveResult($tamplateName, $content);
+        
         require $filePath;
         return ob_get_clean();
     }
