@@ -12,8 +12,8 @@ class ErrorController extends Controller
     /**
      * Error page
      */
-    public function page404(): void
+    public function page404($exception): void
     {
-        echo $this->view->render('error');
+        echo $this->view->render('error', ['exception' => $exception]);
     }
 }
