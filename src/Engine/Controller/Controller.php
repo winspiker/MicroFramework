@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Winspiker\MicroFramework\Engine;
+namespace Winspiker\MicroFramework\Engine\Controller;
 
 
 use Winspiker\MicroFramework\Engine\Core\View\View;

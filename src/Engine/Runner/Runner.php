@@ -4,12 +4,15 @@ declare(strict_types=1);
 namespace Winspiker\MicroFramework\Engine\Runner;
 
 
-use Winspiker\MicroFramework\Main\Controller\ErrorController;
 use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
-use Winspiker\MicroFramework\Engine\Helper\Common;
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Request\Request;
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Request\RequestStack;
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Response\Response;
 use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
 use Winspiker\MicroFramework\Engine\Core\Router\Router;
 use Winspiker\MicroFramework\Engine\DI\DI;
+use Winspiker\MicroFramework\Engine\Helper\Common;
+use Winspiker\MicroFramework\Main\Controller\ErrorController;
 
 class Runner
 {
@@ -17,7 +20,8 @@ class Runner
      * @var DI
      */
     private DI $di;
-    public Router $router;
+    private RequestStack $requestStack;
+    private Router $router;
     private FileManager $fileManager;
 
     /**
@@ -26,33 +30,43 @@ class Runner
     public function __construct($di)
     {
         $this->di = $di;
+        $this->requestStack = $di->get('request_stack');
         $this->router = $this->di->get('router');
         $this->fileManager = $this->di->get('filemanager');
+
     }
-    private function executeController($routerDispatch): void
+
+    private function routerFactory (string $routerFullDir) {
+        $routes = $this->fileManager->getFiles($routerFullDir);
+        foreach ($routes as $routesFile) {
+            require_once $routesFile;
+        }
+    }
+
+    private function executeController($routerDispatch): Response
     {
 
         [$controller, $action] = $routerDispatch->getController();
         $routerParams = $routerDispatch->getParameters();
         $parameters = \array_key_exists('id', $routerParams) ? array($routerParams['id']) : $routerParams;
-        \call_user_func_array([new $controller($this->di), $action], $parameters);
+        return \call_user_func_array([new $controller($this->di), $action], $parameters);
 
     }
-    public function run(): void
+    public function run(Request $request): Response
     {
         try {
-            $routes = $this->fileManager->getFiles(RESOURCE_DIR . '/routes');
-            foreach ($routes as $routesFile) {
-                require_once $routesFile;
-            }
+            $this->requestStack->push($request);
 
-            $routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
+            $this->routerFactory(RESOURCE_DIR . '/routes');
+            
+            $routerDispatch = $this->router->dispatch($request->getMethod(), $request->getPath());
 
-            $this->executeController($routerDispatch);
         } catch (\Exception $e) {
             $routerDispatch = new DispatchedRoute([ErrorController::class, 'page404'], [$e->getMessage()]);
 
-            $this->executeController($routerDispatch);
+        } finally {
+            $this->requestStack->pop($request);
+            return $this->executeController($routerDispatch);
         }
     }
 }

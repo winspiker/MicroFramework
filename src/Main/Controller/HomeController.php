@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Winspiker\MicroFramework\Main\Controller;
 
-use Winspiker\MicroFramework\Engine\Controller;
+use Winspiker\MicroFramework\Engine\Controller\Controller;
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Response\Response;
 
 class HomeController extends Controller
 {
@@ -11,33 +12,37 @@ class HomeController extends Controller
     /**
      * Home page
      */
-    public function index(): void
+    public function index(): Response
     {
-        echo $this->view->render('home', ['name' => 'Alex']);
+        $content = $this->view->render('home', ['name' => 'Alex']);
+        return new Response($content);
     }
 
     /**
      * News page
      */
-    public function news(): void
+    public function news(): Response
     {
-        echo $this->view->render('news', ['news' => 'Срочные новости!', 'text' => 'Житель Киева (Ромашка) сьел БОМЖА!']);
+        $content = $this->view->render('news', ['news' => 'Срочные новости!', 'text' => 'Житель Киева (Ромашка) сьел БОМЖА!']);
+        return new Response($content);
     }
 
     /**
      * Contacts page
      */
-    public function contacts(): void
+    public function contacts(): Response
     {
-        echo $this->view->render('contacts', ['name' => 'Alexaaa', 'phone' => '+380 (67) 627 5009']);
+        $content = $this->view->render('contacts', ['name' => 'Alexaaa', 'phone' => '+380 (67) 627 5009']);
+        return new Response($content);
     }
 
     /**
      * Support page
      */
-    public function support(): void
+    public function support(): Response
     {
-        echo $this->view->render('support', ['call' => 'Telegram', 'link' => 'https://t.me/shittycoms']);
+        $content = $this->view->render('support', ['call' => 'Telegram', 'link' => 'https://t.me/shittycoms']);
+        return new Response($content);
     }
 
 }
