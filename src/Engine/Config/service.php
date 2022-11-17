@@ -6,4 +6,5 @@ return [
     Winspiker\MicroFramework\Engine\Services\FileManager\Provider::class,
     Winspiker\MicroFramework\Engine\Services\Templater\Provider::class,
     Winspiker\MicroFramework\Engine\Services\View\Provider::class,
+    Winspiker\MicroFramework\Engine\Services\RequestStack\Provider::class,
 ];

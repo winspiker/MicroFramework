@@ -4,7 +4,8 @@ declare(strict_types=1);
 namespace Winspiker\MicroFramework\Main\Controller;
 
 
-use Winspiker\MicroFramework\Engine\Controller;
+use Winspiker\MicroFramework\Engine\Controller\Controller;
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Response\Response;
 
 class ErrorController extends Controller
 {
@@ -12,8 +13,9 @@ class ErrorController extends Controller
     /**
      * Error page
      */
-    public function page404($exception): void
+    public function page404($exception): Response
     {
-        echo $this->view->render('error', ['exception' => $exception]);
+        $content = $this->view->render('error', ['exception' => $exception]);
+        return new Response($content);
     }
 }

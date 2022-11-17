@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Winspiker\MicroFramework\Engine\Core\HttpBasics\Request\Request;
 use Winspiker\MicroFramework\Engine\DI\DI;
 use Winspiker\MicroFramework\Engine\Runner\Runner;
 
@@ -18,10 +19,10 @@ try {
         $provider->init();
     }
 
-    $worker = new Runner($di);
-
-    $worker->run();
-
+    $runner = new Runner($di);
+    
+    $response = $runner->run(Request::createFromGlobals());
+    $response->send();
 } catch (Exception $e) {
 
 }
