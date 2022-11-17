@@ -3,7 +3,7 @@
 </p>
 
 
-> The lightweight PHP database framework to accelerate development
+> The simple template engine for PHP
 
 ## Features
 
@@ -25,14 +25,16 @@ Run composer install
 ```
 $ composer install
 ```
-### <span style="color: rgba(255,1,1,0.6)"> Create rewrite rules for the URL rewrite module
+### Create rewrite rules for the URL rewrite module
+#
 ### Add new routes
-Path ~/resources/routes.php
+Path /resources/routes.php
 ```php
 $this->router->add('routeName', '/some/route', [SomeController::class, "someMethod"]);
 ```
 
 ### Add new controller
+Path /src/Main/Controller/SomeController.php
 ```php
 class SomeController extends Controller
 {
@@ -48,7 +50,7 @@ class SomeController extends Controller
 ```
 
 ### Create new template page
-Path ~/templates/templateName.blade.php
+Path /templates/templateName.blade.php
 ```php
 
 // Name of extends file.
@@ -63,12 +65,12 @@ Path ~/templates/templateName.blade.php
 
 
 ### Create new parent template
-Path ~/templates/SomeExtends.blade.php
+Path /templates/SomeExtends.blade.php
 ```html
 <!--some html code-->
 
 <div>
-<!--The place where your template content will be inserted-->
+    <!--The place where your template content will be inserted-->
     @yield('content')
 </div>
 
