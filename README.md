@@ -1,9 +1,18 @@
-<p align="center">
-    <a href="https://medoo.in" target="_blank"><img width="350" src="https://repository-images.githubusercontent.com/48094950/a69b6180-a1a8-11ea-860f-32cc0caa3d5f"></a>
-</p>
+<div align="center">
+
+# MicroFramework
+
+MicroFramework is a **simple framework** for u.
+
+[Features](#features) •
+[Requirement](#requirement) •
+[Installation](#installation) •
+[Configuration](#configuration)
+
+</div>
 
 
-> The simple template engine for PHP
+
 
 ## Features
 
@@ -17,16 +26,19 @@
 
 PHP 7.3+
 
-## Get Started
+## Installation
 
 ### Install via composer
 
-Run composer install
+Run [composer](https://getcomposer.org/) install
 ```
 $ composer install
 ```
-### Create rewrite rules for the URL rewrite module
+
+## Configuration
 #
+### *Create rewrite rules for the URL rewrite module
+
 ### Add new routes
 Path /resources/routes.php
 ```php
