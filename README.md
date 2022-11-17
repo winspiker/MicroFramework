@@ -70,8 +70,8 @@ Path /templates/templateName.blade.php
 
 
 @section('content')
-        <h1 class="display-4 fw-normal">Some Page <?= $name ?></h1>
-        <p class="fs-5 text-muted">This is $variableName</p>
+        <h1">Some Page</h1>
+        <p class="fs-5 text-muted"> This is <?= $variableName ?> </p>
 @endsection
 ```
 
