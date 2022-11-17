@@ -2,7 +2,7 @@
 
 # MicroFramework
 
-MicroFramework is a **simple framework** for u.
+**MicroFramework** is a simple MVC engine for PHP.
 
 [Features](#features) •
 [Requirement](#requirement) •
