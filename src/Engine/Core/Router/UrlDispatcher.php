@@ -6,7 +6,7 @@ namespace Winspiker\MicroFramework\Engine\Core\Router;
 use mysql_xdevapi\Exception;
 use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
 
-class UrlDispatcher
+final class UrlDispatcher
 {
     private array $method = [
         'GET',
@@ -27,31 +27,17 @@ class UrlDispatcher
         'any' => '[a-zA-Z0-9\.\-_%]+'
     ];
 
-    /**
-     * @param $key
-     * @param $pattern
-     * @return void
-     */
-    public function addPattern($key, $pattern): void
+    public function addPattern(string $key, string $pattern): void
     {
         $this->patterns[$key] = $pattern;
     }
 
-    /**
-     * @param $method
-     * @return array
-     */
-    private function routes($method): array
+    private function routes(string $method): array
     {
         return $this->routes[$method] ?? [];
     }
 
-    /**
-     * @param $method
-     * @param $uri
-     * @return DispatchedRoute|null
-     */
-    public function dispatch($method, $uri): ?DispatchedRoute
+    public function dispatch(string $method, string $uri): ?DispatchedRoute
     {
         $routes = $this->routes(strtoupper($method));
         if (\array_key_exists($uri, $routes)) {
@@ -60,15 +46,9 @@ class UrlDispatcher
         return $this->doDispatch($method, $uri);
     }
 
-
-    /**
-     * @param $method
-     * @param $uri
-     * @throws \Exception
-     */
-    private function doDispatch($method, $uri): ?DispatchedRoute
+    private function doDispatch(string $method, string $uri): ?DispatchedRoute
     {
-        foreach ($this->routes($method) as $route => $controller) {
+        foreach ($this->routes(strtoupper($method)) as $route => $controller) {
             $pattern = '#^' . $route . '$#s';
             if (preg_match($pattern, $uri, $parameters)) {
                 return new DispatchedRoute($controller, $parameters);
@@ -79,22 +59,13 @@ class UrlDispatcher
         );
     }
 
-    /**
-     * @param mixed $method
-     * @param mixed $pattern
-     * @param mixed $controller
-     * @return void
-     */
-    public function register(mixed $method, mixed $pattern, mixed $controller): void
+    public function register(string $method, string $pattern, array $controller): void
     {
         $convert = (string)$this->convertPatternt($pattern);
         $this->routes[strtoupper($method)][$convert] = $controller;
     }
 
-    /**
-     * @param string $pattern
-     * @return array|string|null
-     */
+
     private function convertPatternt(string $pattern): array|string|null
     {
         if (!str_contains($pattern, '(')) {
@@ -103,11 +74,7 @@ class UrlDispatcher
         return preg_replace_callback('#\((\w+):(\w+)\)#', [$this, 'replacePattern'], $pattern);
     }
 
-    /**
-     * @param $matches
-     * @return string
-     */
-    private function replacePattern($matches): string
+    private function replacePattern(array $matches): string
     {
         return '(?<' . $matches[1] . '>' . strtr($matches[2], $this->patterns) . ')';
     }

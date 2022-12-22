@@ -4,12 +4,13 @@ declare(strict_types=1);
 namespace Winspiker\MicroFramework\Engine\Core\Router;
 
 
-class DispatchedRoute
+final class DispatchedRoute
 {
 
-    public function __construct(private array $controller, private array $parameters = [])
-    {
-        // Проверить если ли такой класс
+    public function __construct(
+        private array $controller,
+        private array $parameters = []
+    ) {
         $controller = $this->controller[0];
         if(!class_exists($controller)) {
             throw new \InvalidArgumentException(

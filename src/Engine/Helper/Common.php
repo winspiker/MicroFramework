@@ -3,29 +3,20 @@ declare(strict_types=1);
 
 namespace Winspiker\MicroFramework\Engine\Helper;
 
-class Common
+final class Common
 {
-    /**
-     * @return bool
-     */
     public function isPost(): bool
     {
         return $_SERVER['REQUEST_METHOD'] === 'POST';
 
     }
 
-    /**
-     * @return mixed
-     */
     public static function getMethod(): string
     {
         return $_SERVER['REQUEST_METHOD'];
     }
 
-    /**
-     * @return mixed|string
-     */
-    public static function getPathUrl(): mixed
+    public static function getPathUrl(): ?string
     {
         $pathUrl = $_SERVER['REQUEST_URI'];
 

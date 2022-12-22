@@ -6,7 +6,7 @@ namespace Winspiker\MicroFramework\Admin\Controller;
 
 use Winspiker\MicroFramework\Engine\Controller\Controller;
 
-class ErrorController extends Controller
+final class ErrorController extends Controller
 {
 
     /**

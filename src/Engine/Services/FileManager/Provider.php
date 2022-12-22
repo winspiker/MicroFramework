@@ -7,17 +7,14 @@ use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
 
 use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 
-class Provider extends AbstractProvider
+final class Provider extends AbstractProvider
 {
     /**
      * @var string
      */
     private const FILEMANAGER_SERVICE = 'filemanager';
 
-    /**
-     * @return mixed|void
-     */
-    public function init()
+    public function init(): void
     {
         $fileManager = new FileManager();
 

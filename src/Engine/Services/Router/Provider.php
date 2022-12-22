@@ -7,17 +7,14 @@ use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
 
 use Winspiker\MicroFramework\Engine\Core\Router\Router;
 
-class Provider extends AbstractProvider
+final class Provider extends AbstractProvider
 {
     /**
      * @var string
      */
     private const ROUTER_SERVICE = 'router';
 
-    /**
-     * @return mixed|void
-     */
-    public function init()
+    public function init(): void
     {
         $router = new Router();
 

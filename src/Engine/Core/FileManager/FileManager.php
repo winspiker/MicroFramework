@@ -4,9 +4,9 @@ namespace Winspiker\MicroFramework\Engine\Core\FileManager;
 
 class FileManager
 {
-    public function saveResult(string $tempalateName, string $content): string
+    public function saveResult(string $templateName, string $content): string
     {
-        $hash = hash('md5', $tempalateName . hash('md5', $content));
+        $hash = hash('md5', $templateName . hash('md5', $content));
         $fileName = $hash . '.php';
         $fullFileName = ROOT_DIR . 'cache/' . $fileName;
         if (!is_file($fullFileName)) {

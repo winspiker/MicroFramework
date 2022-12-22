@@ -11,22 +11,16 @@ use Winspiker\MicroFramework\Engine\Core\HttpBasics\Response\Response;
 use Winspiker\MicroFramework\Engine\Core\Router\DispatchedRoute;
 use Winspiker\MicroFramework\Engine\Core\Router\Router;
 use Winspiker\MicroFramework\Engine\DI\DI;
-use Winspiker\MicroFramework\Engine\Helper\Common;
 use Winspiker\MicroFramework\Main\Controller\ErrorController;
 
-class Runner
+final class Runner
 {
-    /**
-     * @var DI
-     */
+
     private DI $di;
     private RequestStack $requestStack;
     private Router $router;
     private FileManager $fileManager;
 
-    /**
-     * @param $di
-     */
     public function __construct($di)
     {
         $this->di = $di;
@@ -36,22 +30,23 @@ class Runner
 
     }
 
-    private function routerFactory (string $routerFullDir) {
-        $routes = $this->fileManager->getFiles($routerFullDir);
+    private function routerFactory(string $routersDir): void
+    {
+        $routes = $this->fileManager->getFiles($routersDir);
         foreach ($routes as $routesFile) {
             require_once $routesFile;
         }
     }
 
-    private function executeController($routerDispatch): Response
+    private function executeController(DispatchedRoute $routerDispatch): Response
     {
-
         [$controller, $action] = $routerDispatch->getController();
         $routerParams = $routerDispatch->getParameters();
         $parameters = \array_key_exists('id', $routerParams) ? array($routerParams['id']) : $routerParams;
         return \call_user_func_array([new $controller($this->di), $action], $parameters);
 
     }
+
     public function run(Request $request): Response
     {
         try {

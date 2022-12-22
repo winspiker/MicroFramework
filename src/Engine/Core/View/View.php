@@ -7,28 +7,24 @@ use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 use Winspiker\MicroFramework\Engine\DI\DI;
 use Winspiker\MicroFramework\Engine\Core\Templater\Renderer;
 
-class View
+final class View
 {
     private Renderer $renderer;
     private FileManager $fileManager;
 
-    /**
-     * @param DI $di
-     */
-
-
-    public function __construct(Renderer $renderer, FileManager $fileManager){
+    public function __construct(Renderer $renderer, FileManager $fileManager)
+    {
         $this->renderer = $renderer;
         $this->fileManager = $fileManager;
     }
 
 
-    public function render(string $tamplateName, array $data = []): string
+    public function render(string $templateName, array $data = []): string
     {
         ob_start();
         extract($data, EXTR_SKIP);
-        $content = $this->renderer->render($tamplateName);
-        $filePath = $this->fileManager->saveResult($tamplateName, $content);
+        $content = $this->renderer->render($templateName);
+        $filePath = $this->fileManager->saveResult($templateName, $content);
         
         require $filePath;
         return ob_get_clean();

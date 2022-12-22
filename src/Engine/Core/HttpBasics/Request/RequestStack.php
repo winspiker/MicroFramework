@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Winspiker\MicroFramework\Engine\Core\HttpBasics\Request;
 
-class RequestStack
+final class RequestStack
 {
     /**
      * @var Request[]
@@ -21,15 +21,7 @@ class RequestStack
         $this->requests[] = $request;
     }
 
-    /**
-     * Pops the current request from the stack.
-     *
-     * This operation lets the current request go out of scope.
-     *
-     * This method should generally not be called directly as the stack
-     * management should be taken care of by the application itself.
-     */
-    public function pop(): ?Request
+    public function pop(Request $request): ?Request
     {
         if (!$this->requests) {
             return null;

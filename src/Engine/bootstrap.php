@@ -24,5 +24,5 @@ try {
     $response = $runner->run(Request::createFromGlobals());
     $response->send();
 } catch (Exception $e) {
-
+    throw new \RuntimeException('Something was wrong :(');
 }

@@ -7,15 +7,14 @@ use Winspiker\MicroFramework\Engine\Core\Templater\Parser;
 use Winspiker\MicroFramework\Engine\Services\AbstractProvider;
 use Winspiker\MicroFramework\Engine\Core\Templater\Renderer;
 
-class Provider extends AbstractProvider
+final class Provider extends AbstractProvider
 {
-
+    /**
+     * @var string
+     */
     private const RENDERER_SERVICE = 'renderer';
 
-    /**
-     * @return mixed|void
-     */
-    public function init()
+    public function init(): void
     {
         $fileManager = $this->di->get('filemanager');
         $parser = new Parser($fileManager);

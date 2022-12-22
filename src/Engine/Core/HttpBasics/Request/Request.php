@@ -7,7 +7,6 @@ namespace Winspiker\MicroFramework\Engine\Core\HttpBasics\Request;
 class Request
 {
     private static $requestFactory;
-
     private array $headers;
     private array $request;
     private array $query;
@@ -59,7 +58,7 @@ class Request
         return array_filter($server, $hasHeader, ARRAY_FILTER_USE_KEY);
     }
 
-    private function setRequestMethod(array $server)
+    private function setRequestMethod(array $server): string
     {
         return $server['REQUEST_METHOD'];
     }

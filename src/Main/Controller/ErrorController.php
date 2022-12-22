@@ -7,7 +7,7 @@ namespace Winspiker\MicroFramework\Main\Controller;
 use Winspiker\MicroFramework\Engine\Controller\Controller;
 use Winspiker\MicroFramework\Engine\Core\HttpBasics\Response\Response;
 
-class ErrorController extends Controller
+final class ErrorController extends Controller
 {
 
     /**

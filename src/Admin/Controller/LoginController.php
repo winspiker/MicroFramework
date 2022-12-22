@@ -6,7 +6,7 @@ namespace Winspiker\MicroFramework\Admin\Controller;
 
 use Winspiker\MicroFramework\Engine\Controller\Controller;
 
-class LoginController extends Controller
+final class LoginController extends Controller
 {
 
     /**

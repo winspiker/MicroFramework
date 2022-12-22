@@ -4,7 +4,7 @@ namespace Winspiker\MicroFramework\Engine\Core\Templater;
 
 use Winspiker\MicroFramework\Engine\Core\FileManager\FileManager;
 
-class Renderer // Renderer
+final class Renderer
 {
     private Parser $parser;
     public string $templateDir;
@@ -19,8 +19,8 @@ class Renderer // Renderer
 
     public function render(string $tempalateName): string
     {
-        $tempalateFilePath = $this->fm->fileExist($this->templateDir, $tempalateName);
-        $attributes = $this->parser->parseContent($this->templateDir, $tempalateFilePath);
+        $templateFilePath = $this->fm->fileExist($this->templateDir, $tempalateName);
+        $attributes = $this->parser->parseContent($this->templateDir, $templateFilePath);
         $pageContent = preg_replace($attributes->yieldsFullName, $attributes->yieldsContent, $attributes->extendsContent);
 
         return $pageContent;
